@@ -21,10 +21,6 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void answerQuestion(String answer) {
     widget.onSelectAnswer(answer);
 
-    if (currentIndex == (questions.length - 1)) {
-      return;
-    }
-
     setState(() {
       currentIndex++;
     });
