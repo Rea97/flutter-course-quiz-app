@@ -11,7 +11,7 @@ class ResultsScreen extends StatelessWidget {
   const ResultsScreen(
       {super.key, required this.chosenAnswers, required this.onRestartQuiz});
 
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData {
     List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswers.length; i++) {
@@ -30,9 +30,7 @@ class ResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final int questionsLength = questions.length;
-    final int correctAnswersLength = getSummaryData().where((item) {
-      return item['is_correct'] as bool;
-    }).length;
+    final int correctAnswersLength = summaryData.where((item) => item['is_correct'] as bool).length;
 
     return SizedBox(
       width: double.infinity,
@@ -53,7 +51,7 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            QuestionsSummary(getSummaryData()),
+            QuestionsSummary(summaryData),
             const SizedBox(
               height: 30,
             ),
